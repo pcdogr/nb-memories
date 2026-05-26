@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Northern Beaches Memories - Historical Photo Restoration</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #f5f0eb; color: #1a1a2e; line-height:1.6; }
+  header { background: linear-gradient(135deg, #1a1a2e 0%, #2d2d4e 100%); color:white; padding:4rem 2rem; text-align:center; }
+  header h1 { font-size:2.5rem; margin-bottom:0.5rem; letter-spacing:-0.5px; }
+  header p { opacity:0.8; font-size:1.15rem; max-width:650px; margin:0 auto; }
+  .tagline { font-style:italic; color:#c37d4a; margin-top:1rem; font-size:0.95rem; }
+  section { max-width:1100px; margin:2rem auto; padding:0 1rem; }
+  h2 { font-size:1.4rem; color:#1a1a2e; margin-bottom:1rem; }
+  .gallery { display:grid; grid-template-columns:repeat(auto-fill, minmax(480px,1fr)); gap:1.5rem; }
+  .card { background:white; border-radius:14px; overflow:hidden; box-shadow:0 3px 15px rgba(0,0,0,0.07); transition:transform 0.2s; }
+  .card:hover { transform:translateY(-3px); }
+  .card img { width:100%; height:300px; object-fit:cover; display:block; }
+  .card-body { padding:1.3rem; }
+  .card h3 { font-size:1.05rem; margin-bottom:0.3rem; color:#1a1a2e; }
+  .card p { font-size:0.88rem; color:#666; line-height:1.5; }
+  .cta { background:white; border-radius:14px; padding:3rem 2rem; text-align:center; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin:2rem auto; max-width:700px; }
+  .cta h2 { color:#1a1a2e; margin-bottom:0.5rem; font-size:1.5rem; }
+  .cta p { color:#666; font-size:0.95rem; max-width:500px; margin:0 auto 1.5rem; }
+  .btn { display:inline-block; background:#c37d4a; color:white; padding:0.8rem 2.5rem; border-radius:8px; text-decoration:none; font-size:1rem; transition:background 0.2s; }
+  .btn:hover { background:#a6683d; }
+  .pricing { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2rem 0; }
+  .tier { background:white; border-radius:12px; padding:1.5rem; text-align:center; box-shadow:0 1px 8px rgba(0,0,0,0.05); }
+  .tier h3 { color:#c37d4a; font-size:1.1rem; margin-bottom:0.3rem; }
+  .tier .price { font-size:1.8rem; font-weight:bold; color:#1a1a2e; margin:0.5rem 0; }
+  .tier p { font-size:0.82rem; color:#888; }
+  .tier.featured { border:2px solid #c37d4a; transform:scale(1.02); }
+  .free-offer { background:#e8f5e9; border:2px solid #81b29a; border-radius:12px; padding:1.5rem; text-align:center; margin:2rem 0; }
+  .free-offer h3 { color:#2e7d32; font-size:1.2rem; }
+  .free-offer p { color:#555; font-size:0.9rem; margin-top:0.5rem; }
+  footer { text-align:center; padding:2rem; color:#999; font-size:0.82rem; }
+  footer a { color:#c37d4a; text-decoration:none; }
+  @media (max-width:700px) { .gallery { grid-template-columns:1fr; } .pricing { grid-template-columns:1fr; } .tier.featured { transform:none; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>🏖️ Northern Beaches Memories</h1>
+  <p>Preserving the history of Sydney's Northern Beaches — restoring and sharing our local heritage, one photograph at a time</p>
+  <div class='tagline'>✨ AI-powered photo restoration · Proudly local · Serving Manly to Palm Beach</div>
+</header>
+
+<section>
+  <h2>📜 Historical Photo Gallery</h2>
+  <p style='color:#888;margin-bottom:1rem;'>A glimpse into the Northern Beaches of days gone by. More photos coming as we restore them.</p>
+  <div class='gallery'>
+    <div class='card'>
+      <img src='https://files.catbox.moe/js04ie.jpg' alt='Manly Beach and Promenade, c 1912' loading='lazy'>
+      <div class='card-body'><h3>Manly Beach and Promenade, c 1912</h3><p>Edwardian elegance on Manly's oceanfront promenade. The beach we know today, frozen in time a century ago.</p></div>
+    </div>
+    <div class='card'>
+      <img src='https://files.catbox.moe/s6onat.jpg' alt='Body surfers at Manly Beach, c 1926' loading='lazy'>
+      <div class='card-body'><h3>Body surfers at Manly Beach, c 1926</h3><p>The birth of Australia's beach culture — body surfers riding the Manly waves, captured nearly 100 years ago.</p></div>
+    </div>
+    <div class='card'>
+      <img src='https://files.catbox.moe/jantna.jpg' alt='North Steyne Promenade, Manly' loading='lazy'>
+      <div class='card-body'><h3>North Steyne Promenade, Manly</h3><p>Strolling along the iconic North Steyne shoreline, a favourite spot for locals and visitors alike.</p></div>
+    </div>
+    <div class='card'>
+      <img src='https://files.catbox.moe/s21a0e.jpg' alt='Brookvale Hotel, 1955' loading='lazy'>
+      <div class='card-body'><h3>Brookvale Hotel, 1955</h3><p>The very first hotel in Brookvale, opened in March 1955. A landmark of the changing Northern Beaches.</p></div>
+    </div>
+    <div class='card'>
+      <img src='https://files.catbox.moe/w9uccv.jpg' alt='Queenscliff Beach and Headland' loading='lazy'>
+      <div class='card-body'><h3>Queenscliff Beach and Headland</h3><p>A view of the coast that shows how much — and how little — has changed over the decades.</p></div>
+    </div>
+    <div class='card'>
+      <img src='https://files.catbox.moe/bho1yb.jpg' alt='Brookvale House, c 1895' loading='lazy'>
+      <div class='card-body'><h3>Brookvale House, c 1895</h3><p>Brookvale Estate captured in the late 19th century, long before the suburb we know today existed.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class='free-offer'>
+  <h3>🎁 FREE Restoration — First 10 People</h3>
+  <p>We're launching and want to build our gallery. Have old Northern Beaches photos? Get one photo restored for free in exchange for adding it to our community archive.<br><strong>Email us your photo → we restore it → you share the story.</strong></p>
+  <p style='margin-top:1rem;'><a href='mailto:info@kangarubber.com.au?subject=Free%20Photo%20Restoration' class='btn'>Claim Free Restoration →</a></p>
+</div>
+
+<section>
+  <h2>💎 Restoration Pricing</h2>
+  <p style='color:#888;margin-bottom:1rem;'>Simple, transparent pricing. All work includes unlimited revisions until you're happy.</p>
+  <div class='pricing'>
+    <div class='tier'>
+      <h3>Basic</h3>
+      <div class='price'>$29</div>
+      <p>AI restoration for lightly faded or creased photos. Great for snapshots.</p>
+    </div>
+    <div class='tier featured'>
+      <h3>Standard</h3>
+      <div class='price'>$59</div>
+      <p>AI + manual correction. Scratches, tears, stains, and colourisation.</p>
+    </div>
+    <div class='tier'>
+      <h3>Premium</h3>
+      <div class='price'>$99</div>
+      <p>Heavy damage repair, face reconstruction, full colourisation. Heirloom quality.</p>
+    </div>
+  </div>
+  <p style='text-align:center;color:#888;font-size:0.85rem;'>🎯 20% off for 3+ photos · Free assessment — we'll tell you which tier your photos need</p>
+</section>
+
+<section class='cta'>
+  <h2>📬 Get in Touch</h2>
+  <p>Have old photos gathering dust? Not sure if they can be restored? Send us a message — we'll give you a free assessment with no obligation.</p>
+  <p style='margin-top:1rem;'><a href='mailto:info@kangarubber.com.au' class='btn'>Email Us →</a></p>
+  <p style='margin-top:0.8rem;font-size:0.85rem;color:#aaa;'>📍 Based in Brookvale · Serving the entire Northern Beaches</p>
+</section>
+
+<footer>
+  Photos from <a href='https://northernbeaches.recollect.net.au/' target='_blank'>Northern Beaches Council History Hub</a> · Site by Daisy 🌸
+  <br><span style='font-size:0.75rem;color:#bbb;'>Photo credits: Manly Library Local Studies · Dee Why Library · Mona Vale Library</span>
+</footer>
+</body>
+</html>
