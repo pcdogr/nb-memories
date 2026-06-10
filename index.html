@@ -37,6 +37,23 @@
   footer { text-align:center; padding:2rem; color:#999; font-size:0.82rem; }
   footer a { color:#c37d4a; text-decoration:none; }
   @media (max-width:700px) { .gallery { grid-template-columns:1fr; } .pricing { grid-template-columns:1fr; } .tier.featured { transform:none; } }
+.compare-card .compare { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+  .compare-card .compare-img { position:relative; }
+  .compare-card .compare-img img { width:100%; height:300px; object-fit:cover; display:block; }
+  .compare-card .label { position:absolute; top:8px; left:8px; padding:3px 8px; border-radius:4px; font-size:0.7rem; font-weight:bold; letter-spacing:1px; }
+  .compare-card .before { background:rgba(0,0,0,0.6); color:#fff; }
+  .compare-card .after { background:rgba(195,125,74,0.85); color:#fff; }
+  @media (max-width:550px) { .compare-card .compare { grid-template-columns:1fr; } }
+
+  /* Lightbox */
+  .lightbox { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); z-index:9999; justify-content:center; align-items:center; cursor:pointer; }
+  .lightbox.show { display:flex; }
+  .lightbox img { max-width:95vw; max-height:95vh; object-fit:contain; border-radius:4px; box-shadow:0 0 30px rgba(0,0,0,0.5); }
+  .lightbox .close { position:absolute; top:20px; right:30px; color:#fff; font-size:2rem; cursor:pointer; opacity:0.8; }
+  .lightbox .close:hover { opacity:1; }
+  .lightbox .caption { position:absolute; bottom:20px; left:0; width:100%; text-align:center; color:#ccc; font-size:0.85rem; padding:1rem; }
+  .card img:hover { cursor:pointer; opacity:0.95; }
+
 </style>
 </head>
 <body>
@@ -49,14 +66,37 @@
 <section>
   <h2>📜 Historical Photo Gallery</h2>
   <p style='color:#888;margin-bottom:1rem;'>A glimpse into the Northern Beaches of days gone by. More photos coming as we restore them.</p>
-  <div class='gallery'>
-    <div class='card'>
-      <img src='https://files.catbox.moe/js04ie.jpg' alt='Manly Beach and Promenade, c 1912' loading='lazy'>
-      <div class='card-body'><h3>Manly Beach and Promenade, c 1912</h3><p>Edwardian elegance on Manly's oceanfront promenade. The beach we know today, frozen in time a century ago.</p></div>
+  <div class='gallery'><div class="card compare-card">
+      <div class="compare">
+        <div class="compare-img">
+          <span class="label before">BEFORE</span>
+          <img src="https://files.catbox.moe/js04ie.jpg" alt="Manly Beach 1912 - Original">
+        </div>
+        <div class="compare-img">
+          <span class="label after">AFTER</span>
+          <img src="https://files.catbox.moe/gm40cu.jpg" alt="Manly Beach 1912 - Restored">
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Manly Beach and Promenade, c 1912 ✨ Restored</h3>
+        <p>Edwardian elegance on Manly oceanfront promenade. The beach we know today, frozen in time a century ago — now brought back to life with AI restoration.</p>
+      </div>
     </div>
-    <div class='card'>
-      <img src='https://files.catbox.moe/s6onat.jpg' alt='Body surfers at Manly Beach, c 1926' loading='lazy'>
-      <div class='card-body'><h3>Body surfers at Manly Beach, c 1926</h3><p>The birth of Australia's beach culture — body surfers riding the Manly waves, captured nearly 100 years ago.</p></div>
+    <div class="card compare-card">
+      <div class="compare">
+        <div class="compare-img">
+          <span class="label before">BEFORE</span>
+          <img src="https://files.catbox.moe/s6onat.jpg" alt="Body surfers 1926 - Original">
+        </div>
+        <div class="compare-img">
+          <span class="label after">AFTER</span>
+          <img src="https://files.catbox.moe/1ut11v.jpg" alt="Body surfers 1926 - Restored">
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Body surfers at Manly Beach, c 1926 ✨ Restored</h3>
+        <p>The birth of Australia's beach culture — body surfers riding the Manly waves, captured nearly 100 years ago. This restoration balanced historical authenticity with artistic imagination to capture the dramatic atmosphere of a stormy Manly day.</p>
+      </div>
     </div>
     <div class='card'>
       <img src='https://files.catbox.moe/jantna.jpg' alt='North Steyne Promenade, Manly' loading='lazy'>
@@ -74,13 +114,77 @@
       <img src='https://files.catbox.moe/bho1yb.jpg' alt='Brookvale House, c 1895' loading='lazy'>
       <div class='card-body'><h3>Brookvale House, c 1895</h3><p>Brookvale Estate captured in the late 19th century, long before the suburb we know today existed.</p></div>
     </div>
+    <div class="card compare-card">
+      <div class="compare">
+        <div class="compare-img">
+          <span class="label before">BEFORE</span>
+          <img src="https://files.catbox.moe/t570oj.jpg" alt="Manly Cove Wharf 1940s - Original">
+        </div>
+        <div class="compare-img">
+          <span class="label after">AFTER</span>
+          <img src="https://files.catbox.moe/2xj5tr.jpg" alt="Manly Cove Wharf 1940s - Restored">
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Manly Cove Wharf and Harbour Pool, c 1940s ✨ Restored</h3>
+        <p>The bustling heart of Manly Cove in its mid-century prime. Two steam ferries dock at the busy wharf as crowds pack the foreshore, with the Harbour Pool visible in the background. A snapshot of post-war Manly when it was both a working harbour and a holiday destination.</p>
+      </div>
+    </div>
+    <div class="card compare-card">
+      <div class="compare">
+        <div class="compare-img">
+          <span class="label before">BEFORE</span>
+          <img src="https://files.catbox.moe/th84yp.jpg" alt="Thomas Street Brookvale 1950 - Original">
+        </div>
+        <div class="compare-img">
+          <span class="label after">AFTER</span>
+          <img src="https://files.catbox.moe/xjpuq0.jpg" alt="Thomas Street Brookvale 1950 - Restored">
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Thomas Street, North Manly, looking west over Brookvale, c 1950 ✨ Restored</h3>
+        <p>A sweeping view of mid-century Brookvale from the ridge of North Manly. Red-tiled suburban homes give way to larger industrial buildings below, with rolling hills framing the Northern Beaches beyond. A quiet time capsule of 1950s suburban Sydney.</p>
+      </div>
+    </div>
+    <div class="card compare-card">
+      <div class="compare">
+        <div class="compare-img">
+          <span class="label before">BEFORE</span>
+          <img src="https://files.catbox.moe/i2hlyf.jpg" alt="Old Pittwater Road Brookvale 1910 - Original">
+        </div>
+        <div class="compare-img">
+          <span class="label after">AFTER</span>
+          <img src="https://files.catbox.moe/rjvpha.jpg" alt="Old Pittwater Road Brookvale 1910 - Restored">
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Old Pittwater Road, Brookvale, c 1910 ✨ Restored</h3>
+        <p>A quiet country lane that once connected Brookvale to the wider Northern Beaches. An unpaved stretch flanked by dense eucalyptus bush, with long wooden tables standing in the clearing. A rare glimpse into the area's pastoral Edwardian past.</p>
+      </div>
+    </div>
+    <div class="card compare-card">
+      <div class="compare">
+        <div class="compare-img">
+          <span class="label before">BEFORE</span>
+          <img src="https://files.catbox.moe/sb5rua.jpg" alt="Marineland Manly 1970s - Original">
+        </div>
+        <div class="compare-img">
+          <span class="label after">AFTER</span>
+          <img src="https://files.catbox.moe/dduh8r.jpg" alt="Marineland Manly 1970s - Restored">
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Marineland and the Dressing Pavilion, Manly Cove, 1970s ✨ Restored</h3>
+        <p>A beloved Manly landmark from the seaside fun era. The Marineland complex and the Dressing Pavilion anchored Manly Cove's social scene. This photo freezes the laid-back, sun-bleached character of 1970s beach culture — a piece of Manly history now long gone.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <div class='free-offer'>
   <h3>🎁 FREE Restoration — First 10 People</h3>
   <p>We're launching and want to build our gallery. Have old Northern Beaches photos? Get one photo restored for free in exchange for adding it to our community archive.<br><strong>Email us your photo → we restore it → you share the story.</strong></p>
-  <p style='margin-top:1rem;'><a href='mailto:info@kangarubber.com.au?subject=Free%20Photo%20Restoration' class='btn'>Claim Free Restoration →</a></p>
+  <p style='margin-top:1rem;'><a href='mailto:nbmemories.syd@gmail.com?subject=Free%20Photo%20Restoration' class='btn'>Claim Free Restoration →</a></p>
 </div>
 
 <section>
@@ -109,7 +213,7 @@
 <section class='cta'>
   <h2>📬 Get in Touch</h2>
   <p>Have old photos gathering dust? Not sure if they can be restored? Send us a message — we'll give you a free assessment with no obligation.</p>
-  <p style='margin-top:1rem;'><a href='mailto:info@kangarubber.com.au' class='btn'>Email Us →</a></p>
+  <p style='margin-top:1rem;'><a href='mailto:nbmemories.syd@gmail.com' class='btn'>Email Us →</a></p>
   <p style='margin-top:0.8rem;font-size:0.85rem;color:#aaa;'>📍 Based in Brookvale · Serving the entire Northern Beaches</p>
 </section>
 
@@ -117,5 +221,42 @@
   Photos from <a href='https://northernbeaches.recollect.net.au/' target='_blank'>Northern Beaches Council History Hub</a> · Site by Daisy 🌸
   <br><span style='font-size:0.75rem;color:#bbb;'>Photo credits: Manly Library Local Studies · Dee Why Library · Mona Vale Library</span>
 </footer>
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" src="">
+  <div class="caption" id="lightbox-caption"></div>
+</div>
+
+<script>
+function openLightbox(img) {
+  var lb = document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src = img.src;
+  var caption = img.getAttribute('alt') || '';
+  var card = img.closest('.card-body') || img.closest('.compare-img');
+  if (card) {
+    var title = card.querySelector('h3');
+    if (title) caption = title.innerText;
+  }
+  document.getElementById('lightbox-caption').innerText = caption;
+  lb.classList.add('show');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('show');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.card img, .compare-img img').forEach(function(img) {
+    if (!img.dataset.lightbox) {
+      img.dataset.lightbox = '1';
+      img.addEventListener('click', function(e) {
+        e.stopPropagation();
+        openLightbox(this);
+      });
+    }
+  });
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>
 </body>
 </html>
