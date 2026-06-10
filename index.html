@@ -3,240 +3,161 @@
 <head>
 <meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>Northern Beaches Memories - Historical Photo Restoration</title>
+<title>Northern Beaches Memories — Historical Photo Restoration</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
+
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: Georgia, 'Times New Roman', serif; background: #f5f0eb; color: #1a1a2e; line-height:1.6; }
-  header { background: linear-gradient(135deg, #1a1a2e 0%, #2d2d4e 100%); color:white; padding:4rem 2rem; text-align:center; }
-  header h1 { font-size:2.5rem; margin-bottom:0.5rem; letter-spacing:-0.5px; }
-  header p { opacity:0.8; font-size:1.15rem; max-width:650px; margin:0 auto; }
-  .tagline { font-style:italic; color:#c37d4a; margin-top:1rem; font-size:0.95rem; }
-  section { max-width:1100px; margin:2rem auto; padding:0 1rem; }
-  h2 { font-size:1.4rem; color:#1a1a2e; margin-bottom:1rem; }
-  .gallery { display:grid; grid-template-columns:repeat(auto-fill, minmax(480px,1fr)); gap:1.5rem; }
-  .card { background:white; border-radius:14px; overflow:hidden; box-shadow:0 3px 15px rgba(0,0,0,0.07); transition:transform 0.2s; }
-  .card:hover { transform:translateY(-3px); }
-  .card img { width:100%; height:300px; object-fit:cover; display:block; }
-  .card-body { padding:1.3rem; }
-  .card h3 { font-size:1.05rem; margin-bottom:0.3rem; color:#1a1a2e; }
-  .card p { font-size:0.88rem; color:#666; line-height:1.5; }
-  .cta { background:white; border-radius:14px; padding:3rem 2rem; text-align:center; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin:2rem auto; max-width:700px; }
-  .cta h2 { color:#1a1a2e; margin-bottom:0.5rem; font-size:1.5rem; }
-  .cta p { color:#666; font-size:0.95rem; max-width:500px; margin:0 auto 1.5rem; }
-  .btn { display:inline-block; background:#c37d4a; color:white; padding:0.8rem 2.5rem; border-radius:8px; text-decoration:none; font-size:1rem; transition:background 0.2s; }
-  .btn:hover { background:#a6683d; }
-  .pricing { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2rem 0; }
-  .tier { background:white; border-radius:12px; padding:1.5rem; text-align:center; box-shadow:0 1px 8px rgba(0,0,0,0.05); }
-  .tier h3 { color:#c37d4a; font-size:1.1rem; margin-bottom:0.3rem; }
-  .tier .price { font-size:1.8rem; font-weight:bold; color:#1a1a2e; margin:0.5rem 0; }
-  .tier p { font-size:0.82rem; color:#888; }
-  .tier.featured { border:2px solid #c37d4a; transform:scale(1.02); }
-  .free-offer { background:#e8f5e9; border:2px solid #81b29a; border-radius:12px; padding:1.5rem; text-align:center; margin:2rem 0; }
-  .free-offer h3 { color:#2e7d32; font-size:1.2rem; }
-  .free-offer p { color:#555; font-size:0.9rem; margin-top:0.5rem; }
-  footer { text-align:center; padding:2rem; color:#999; font-size:0.82rem; }
-  footer a { color:#c37d4a; text-decoration:none; }
-  @media (max-width:700px) { .gallery { grid-template-columns:1fr; } .pricing { grid-template-columns:1fr; } .tier.featured { transform:none; } }
-.compare-card .compare { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #faf7f2; color: #1a1a2e; line-height:1.6; -webkit-font-smoothing: antialiased; }
+
+  /* Hero */
+  .hero { position:relative; padding:6rem 2rem 5rem; text-align:center; overflow:hidden; background:#1a1a2e; }
+  .hero::before { content:''; position:absolute; inset:0; background:url('https://files.catbox.moe/2xj5tr.jpg') center/cover; opacity:0.18; }
+  .hero h1 { position:relative; font-family:'DM Serif Display', Georgia, serif; font-size:3.2rem; font-weight:400; color:#fff; letter-spacing:-0.5px; }
+  .hero h1 span { color:#c37d4a; }
+  .hero p { position:relative; max-width:580px; margin:1rem auto 0; font-size:1.05rem; color:rgba(255,255,255,0.7); font-weight:300; line-height:1.7; }
+  .hero .tagline { position:relative; margin-top:1.2rem; font-size:0.85rem; color:#c37d4a; letter-spacing:2px; text-transform:uppercase; font-weight:500; }
+
+  /* Nav */
+  .nav { display:flex; justify-content:center; gap:2rem; padding:1.2rem; background:#fff; border-bottom:1px solid #eee; }
+  .nav a { color:#666; text-decoration:none; font-size:0.88rem; font-weight:500; transition:color 0.2s; }
+  .nav a:hover { color:#c37d4a; }
+
+  section { max-width:1120px; margin:3rem auto; padding:0 1.5rem; }
+  .section-title { font-family:'DM Serif Display', Georgia, serif; font-size:1.6rem; font-weight:400; margin-bottom:0.5rem; color:#1a1a2e; }
+  .section-sub { color:#999; font-size:0.92rem; margin-bottom:2rem; }
+
+  /* Gallery */
+  .gallery { display:grid; grid-template-columns:repeat(auto-fill, minmax(520px,1fr)); gap:2rem; }
+  .card { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 1px 8px rgba(0,0,0,0.04); transition:all 0.3s cubic-bezier(0.16,1,0.3,1); }
+  .card:hover { box-shadow:0 8px 30px rgba(0,0,0,0.08); transform:translateY(-4px); }
+  .card img { width:100%; height:300px; object-fit:cover; display:block; cursor:pointer; transition:opacity 0.3s; }
+  .card img:hover { opacity:0.92; }
+  .card-body { padding:1.5rem; }
+  .card h3 { font-family:'DM Serif Display', Georgia, serif; font-size:1.1rem; font-weight:400; color:#1a1a2e; margin-bottom:0.3rem; }
+  .card .meta { font-size:0.78rem; color:#c37d4a; font-weight:500; letter-spacing:0.5px; margin-bottom:0.4rem; }
+  .card p { font-size:0.88rem; color:#777; line-height:1.6; }
+  .view-all { display:inline-block; margin-top:2rem; padding:0.7rem 2rem; background:#c37d4a; color:#fff; border-radius:10px; text-decoration:none; font-size:0.9rem; font-weight:500; transition:background 0.2s; }
+  .view-all:hover { background:#a6683d; }
+
+  /* Compare card */
+  .compare-card .compare { display:grid; grid-template-columns:1fr 1fr; gap:0; }
   .compare-card .compare-img { position:relative; }
-  .compare-card .compare-img img { width:100%; height:300px; object-fit:cover; display:block; }
-  .compare-card .label { position:absolute; top:8px; left:8px; padding:3px 8px; border-radius:4px; font-size:0.7rem; font-weight:bold; letter-spacing:1px; }
-  .compare-card .before { background:rgba(0,0,0,0.6); color:#fff; }
+  .compare-card .compare-img img { height:280px; width:100%; object-fit:cover; cursor:pointer; }
+  .compare-card .label { position:absolute; top:8px; left:8px; padding:2px 10px; border-radius:4px; font-size:0.65rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; }
+  .compare-card .before { background:rgba(26,26,46,0.7); color:#fff; }
   .compare-card .after { background:rgba(195,125,74,0.85); color:#fff; }
-  @media (max-width:550px) { .compare-card .compare { grid-template-columns:1fr; } }
+
+  /* Pricing */
+  .pricing { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin:2rem 0; }
+  .tier { background:#fff; border-radius:16px; padding:2rem 1.5rem; text-align:center; box-shadow:0 1px 6px rgba(0,0,0,0.03); transition:all 0.3s; }
+  .tier:hover { box-shadow:0 6px 24px rgba(0,0,0,0.06); transform:translateY(-2px); }
+  .tier h3 { font-family:'DM Serif Display', Georgia, serif; font-size:1.1rem; color:#1a1a2e; margin-bottom:0.3rem; font-weight:400; }
+  .tier .price { font-size:2.2rem; font-weight:600; color:#c37d4a; margin:0.6rem 0; }
+  .tier p { font-size:0.85rem; color:#888; line-height:1.6; }
+  .tier.featured { border:2px solid #c37d4a; position:relative; }
+  .tier.featured::before { content:'Most Popular'; position:absolute; top:-10px; left:50%; transform:translateX(-50%); background:#c37d4a; color:#fff; font-size:0.7rem; font-weight:600; padding:2px 12px; border-radius:10px; letter-spacing:0.5px; }
+
+  /* Free offer */
+  .free-banner { background:linear-gradient(135deg, #1a3a2e 0%, #2d5a4e 100%); color:#fff; border-radius:16px; padding:2.5rem; text-align:center; margin:2rem 0; }
+  .free-banner h3 { font-family:'DM Serif Display', Georgia, serif; font-size:1.4rem; font-weight:400; margin-bottom:0.5rem; }
+  .free-banner p { font-size:0.9rem; color:rgba(255,255,255,0.8); max-width:550px; margin:0 auto 1.2rem; line-height:1.6; }
+  .free-banner .btn { display:inline-block; background:#c37d4a; color:#fff; padding:0.7rem 2rem; border-radius:10px; text-decoration:none; font-size:0.9rem; font-weight:500; transition:background 0.2s; }
+  .free-banner .btn:hover { background:#a6683d; }
+  .free-banner strong { color:#81b29a; }
+
+  /* CTA */
+  .cta-section { background:#fff; border-radius:16px; padding:3rem 2rem; text-align:center; box-shadow:0 1px 6px rgba(0,0,0,0.03); }
+  .cta-section h2 { font-family:'DM Serif Display', Georgia, serif; font-size:1.5rem; font-weight:400; margin-bottom:0.5rem; }
+  .cta-section p { color:#888; font-size:0.92rem; max-width:500px; margin:0 auto 1.5rem; line-height:1.6; }
+  .cta-section .btn { display:inline-block; background:#c37d4a; color:#fff; padding:0.8rem 2.5rem; border-radius:10px; text-decoration:none; font-size:0.95rem; font-weight:500; transition:background 0.2s; }
+  .cta-section .btn:hover { background:#a6683d; }
+  .cta-section .detail { font-size:0.82rem; color:#bbb; margin-top:0.8rem; }
+
+  footer { text-align:center; padding:2.5rem 1rem; color:#aaa; font-size:0.8rem; }
+  footer a { color:#c37d4a; text-decoration:none; }
 
   /* Lightbox */
-  .lightbox { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); z-index:9999; justify-content:center; align-items:center; cursor:pointer; }
+  .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.94); z-index:9999; justify-content:center; align-items:center; backdrop-filter:blur(8px); }
   .lightbox.show { display:flex; }
-  .lightbox img { max-width:95vw; max-height:95vh; object-fit:contain; border-radius:4px; box-shadow:0 0 30px rgba(0,0,0,0.5); }
-  .lightbox .close { position:absolute; top:20px; right:30px; color:#fff; font-size:2rem; cursor:pointer; opacity:0.8; }
+  .lightbox img { max-width:92vw; max-height:90vh; object-fit:contain; border-radius:6px; }
+  .lightbox .close { position:absolute; top:20px; right:28px; color:#fff; font-size:1.8rem; cursor:pointer; opacity:0.7; transition:opacity 0.2s; }
   .lightbox .close:hover { opacity:1; }
-  .lightbox .caption { position:absolute; bottom:20px; left:0; width:100%; text-align:center; color:#ccc; font-size:0.85rem; padding:1rem; }
-  .card img:hover { cursor:pointer; opacity:0.95; }
+  .lightbox .caption { position:absolute; bottom:24px; left:0; width:100%; text-align:center; color:rgba(255,255,255,0.6); font-size:0.85rem; padding:1rem; }
 
+  @media (max-width:700px) {
+    .hero h1 { font-size:2rem; }
+    .gallery { grid-template-columns:1fr; }
+    .pricing { grid-template-columns:1fr; }
+    .tier.featured { transform:none; }
+    .compare-card .compare { grid-template-columns:1fr; }
+    .hero { padding:3.5rem 1.5rem 3rem; }
+  }
 </style>
 </head>
 <body>
-<header>
-  <h1>🏖️ Northern Beaches Memories</h1>
+
+<div class="hero">
+  <h1>Northern Beaches <span>Memories</span></h1>
   <p>Preserving the history of Sydney's Northern Beaches — restoring and sharing our local heritage, one photograph at a time</p>
-  <div class='tagline'>✨ AI-powered photo restoration · Proudly local · Serving Manly to Palm Beach</div>
-</header>
-
-<section>
-  <h2>📜 Historical Photo Gallery</h2>
-  <p style='color:#888;margin-bottom:1rem;'>Selected restorations. <a href='gallery.html' style='color:#c37d4a;'>View full gallery →</a></p>
-  <div class='gallery'><div class="card compare-card">
-      <div class="compare">
-        <div class="compare-img">
-          <span class="label before">BEFORE</span>
-          <img src="https://files.catbox.moe/js04ie.jpg" alt="Manly Beach 1912 - Original">
-        </div>
-        <div class="compare-img">
-          <span class="label after">AFTER</span>
-          <img src="https://files.catbox.moe/gm40cu.jpg" alt="Manly Beach 1912 - Restored">
-        </div>
-      </div>
-      <div class="card-body">
-        <h3>Manly Beach and Promenade, c 1912 ✨ Restored</h3>
-        <p>Edwardian elegance on Manly oceanfront promenade. The beach we know today, frozen in time a century ago — now brought back to life with AI restoration.</p>
-      </div>
-    </div>
-    <div class="card compare-card">
-      <div class="compare">
-        <div class="compare-img">
-          <span class="label before">BEFORE</span>
-          <img src="https://files.catbox.moe/s6onat.jpg" alt="Body surfers 1926 - Original">
-        </div>
-        <div class="compare-img">
-          <span class="label after">AFTER</span>
-          <img src="https://files.catbox.moe/1ut11v.jpg" alt="Body surfers 1926 - Restored">
-        </div>
-      </div>
-      <div class="card-body">
-        <h3>Body surfers at Manly Beach, c 1926 ✨ Restored</h3>
-        <p>The birth of Australia's beach culture — body surfers riding the Manly waves, captured nearly 100 years ago. This restoration balanced historical authenticity with artistic imagination to capture the dramatic atmosphere of a stormy Manly day.</p>
-      </div>
-    </div>
-    <div class="card compare-card">
-      <div class="compare">
-        <div class="compare-img">
-          <span class="label before">BEFORE</span>
-          <img src="https://files.catbox.moe/t570oj.jpg" alt="Manly Cove Wharf 1940s - Original">
-        </div>
-        <div class="compare-img">
-          <span class="label after">AFTER</span>
-          <img src="https://files.catbox.moe/2xj5tr.jpg" alt="Manly Cove Wharf 1940s - Restored">
-        </div>
-      </div>
-      <div class="card-body">
-        <h3>Manly Cove Wharf and Harbour Pool, c 1940s ✨ Restored</h3>
-        <p>Two steam ferries dock at the busy wharf as crowds pack the foreshore. A snapshot of post-war Manly when it was both a working harbour and a holiday destination.</p>
-      </div>
-    </div>
-    <div class="card compare-card">
-      <div class="compare">
-        <div class="compare-img">
-          <span class="label before">BEFORE</span>
-          <img src="https://files.catbox.moe/s6onat.jpg" alt="Body surfers 1926 - Original">
-        </div>
-        <div class="compare-img">
-          <span class="label after">AFTER</span>
-          <img src="https://files.catbox.moe/1ut11v.jpg" alt="Body surfers 1926 - Restored">
-        </div>
-      </div>
-      <div class="card-body">
-        <h3>Body surfers at Manly Beach, c 1926 ✨ Restored</h3>
-        <p>The birth of Australia's beach culture — body surfers riding the Manly waves, captured nearly 100 years ago.</p>
-      </div>
-    </div>
-    <div class="card compare-card">
-      <div class="compare">
-        <div class="compare-img">
-          <span class="label before">BEFORE</span>
-          <img src="https://files.catbox.moe/js04ie.jpg" alt="Manly Beach 1912 - Original">
-        </div>
-        <div class="compare-img">
-          <span class="label after">AFTER</span>
-          <img src="https://files.catbox.moe/gm40cu.jpg" alt="Manly Beach 1912 - Restored">
-        </div>
-      </div>
-      <div class="card-body">
-        <h3>Manly Beach and Promenade, c 1912 ✨ Restored</h3>
-        <p>Edwardian elegance on Manly oceanfront promenade — frozen in time a century ago, brought back to life.</p>
-      </div>
-    </div>
-    <div class="card compare-card">
-      <div class="compare">
-        <div class="compare-img">
-          <span class="label before">BEFORE</span>
-          <img src="https://files.catbox.moe/th84yp.jpg" alt="Thomas Street Brookvale 1950 - Original">
-        </div>
-        <div class="compare-img">
-          <span class="label after">AFTER</span>
-          <img src="https://files.catbox.moe/xjpuq0.jpg" alt="Thomas Street Brookvale 1950 - Restored">
-        </div>
-      </div>
-      <div class="card-body">
-        <h3>Thomas Street, North Manly, c 1950 ✨ Restored</h3>
-        <p>A sweeping view of mid-century Brookvale — red-tiled suburban homes giving way to rolling hills beyond.</p>
-      </div>
-    </div>
-    <div class="card compare-card">
-      <div class="compare">
-        <div class="compare-img">
-          <span class="label before">BEFORE</span>
-          <img src="https://files.catbox.moe/sb5rua.jpg" alt="Marineland Manly 1970s - Original">
-        </div>
-        <div class="compare-img">
-          <span class="label after">AFTER</span>
-          <img src="https://files.catbox.moe/dduh8r.jpg" alt="Marineland Manly 1970s - Restored">
-        </div>
-      </div>
-      <div class="card-body">
-        <h3>Marineland and the Dressing Pavilion, 1970s ✨ Restored</h3>
-        <p>A beloved Manly landmark from the seaside fun era — frozen in the laid-back, sun-bleached 70s beach culture.</p>
-      </div>
-    </div>
-    <div class="card compare-card">
-      <div class="compare">
-        <div class="compare-img">
-          <span class="label before">BEFORE</span>
-          <img src="https://files.catbox.moe/i2hlyf.jpg" alt="Old Pittwater Road Brookvale 1910 - Original">
-        </div>
-        <div class="compare-img">
-          <span class="label after">AFTER</span>
-          <img src="https://files.catbox.moe/rjvpha.jpg" alt="Old Pittwater Road Brookvale 1910 - Restored">
-        </div>
-      </div>
-      <div class="card-body">
-        <h3>Old Pittwater Road, Brookvale, c 1910 ✨ Restored</h3>
-        <p>A quiet country lane flanked by eucalyptus bush — a rare glimpse into the Northern Beaches' Edwardian past.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class='free-offer'>
-  <h3>🎁 FREE Restoration — First 10 People</h3>
-  <p>We're launching and want to build our gallery. Have old Northern Beaches photos? Get one photo restored for free in exchange for adding it to our community archive.<br><strong>Email us your photo → we restore it → you share the story.</strong></p>
-  <p style='margin-top:1rem;'><a href='mailto:nbmemories.syd@gmail.com?subject=Free%20Photo%20Restoration' class='btn'>Claim Free Restoration →</a></p>
+  <div class="tagline">AI-Powered Restoration · Proudly Local · Manly to Palm Beach</div>
 </div>
 
-<section>
-  <h2>💎 Restoration Pricing</h2>
-  <p style='color:#888;margin-bottom:1rem;'>Simple, transparent pricing. All work includes unlimited revisions until you're happy.</p>
-  <div class='pricing'>
-    <div class='tier'>
-      <h3>Basic</h3>
-      <div class='price'>$29</div>
-      <p>AI restoration for lightly faded or creased photos. Great for snapshots.</p>
-    </div>
-    <div class='tier featured'>
-      <h3>Standard</h3>
-      <div class='price'>$59</div>
-      <p>AI + manual correction. Scratches, tears, stains, and colourisation.</p>
-    </div>
-    <div class='tier'>
-      <h3>Premium</h3>
-      <div class='price'>$99</div>
-      <p>Heavy damage repair, face reconstruction, full colourisation. Heirloom quality.</p>
-    </div>
-  </div>
-  <p style='text-align:center;color:#888;font-size:0.85rem;'>🎯 20% off for 3+ photos · Free assessment — we'll tell you which tier your photos need</p>
+<div class="nav">
+  <a href="#gallery">Gallery</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#contact">Contact</a>
+  <a href="gallery.html">All Photos →</a>
+</div>
+
+<section id="gallery">
+  <h2 class="section-title">Featured Restorations</h2>
+  <p class="section-sub">Before and after — see what's possible</p>
+  <div class="gallery"></div>
+  <div style="text-align:center"><a href="gallery.html" class="view-all">View Full Gallery →</a></div>
 </section>
 
-<section class='cta'>
-  <h2>📬 Get in Touch</h2>
+<section id="pricing">
+  <h2 class="section-title">Restoration Pricing</h2>
+  <p class="section-sub">Simple, transparent. Unlimited revisions until you're happy.</p>
+  <div class="pricing">
+    <div class="tier">
+      <h3>Basic</h3>
+      <div class="price">$29</div>
+      <p>AI restoration for lightly faded or creased photos. Great for snapshots.</p>
+    </div>
+    <div class="tier featured">
+      <h3>Standard</h3>
+      <div class="price">$59</div>
+      <p>AI + manual correction. Scratches, tears, stains, and colourisation.</p>
+    </div>
+    <div class="tier">
+      <h3>Premium</h3>
+      <div class="price">$99</div>
+      <p>Heavy damage repair, face reconstruction, full colourisation.</p>
+    </div>
+  </div>
+  <p style="text-align:center;color:#999;font-size:0.85rem;">🎯 20% off for 3+ photos · Free assessment — we'll tell you which tier you need</p>
+</section>
+
+<div class="free-banner">
+  <h3>🎁 Free Restoration — First 10 People</h3>
+  <p>Have old Northern Beaches photos? Get <strong>one photo restored for free</strong> in exchange for adding it to our community archive.</p>
+  <a href="mailto:nbmemories.syd@gmail.com?subject=Free%20Photo%20Restoration" class="btn">Claim Free Restoration →</a>
+</div>
+
+<section id="contact" class="cta-section">
+  <h2>Get in Touch</h2>
   <p>Have old photos gathering dust? Not sure if they can be restored? Send us a message — we'll give you a free assessment with no obligation.</p>
-  <p style='margin-top:1rem;'><a href='mailto:nbmemories.syd@gmail.com' class='btn'>Email Us →</a></p>
-  <p style='margin-top:0.8rem;font-size:0.85rem;color:#aaa;'>📍 Based in Brookvale · Serving the entire Northern Beaches</p>
+  <a href="mailto:nbmemories.syd@gmail.com" class="btn">Email Us →</a>
+  <p class="detail">📍 Based in Brookvale · Serving the entire Northern Beaches</p>
 </section>
 
 <footer>
-  Photos from <a href='https://northernbeaches.recollect.net.au/' target='_blank'>Northern Beaches Council History Hub</a> · Site by Daisy 🌸
-  <br><span style='font-size:0.75rem;color:#bbb;'>Photo credits: Manly Library Local Studies · Dee Why Library · Mona Vale Library</span>
+  Photos from <a href="https://northernbeaches.recollect.net.au/" target="_blank">Northern Beaches Council History Hub</a> · Site by Daisy 🌸
+  <br><span style="font-size:0.75rem;color:#bbb;">Manly Library · Dee Why Library · Mona Vale Library</span>
 </footer>
+
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <span class="close" onclick="closeLightbox()">&times;</span>
   <img id="lightbox-img" src="">
@@ -244,35 +165,53 @@
 </div>
 
 <script>
+const photos = [
+  {before:'https://files.catbox.moe/t570oj.jpg', after:'https://files.catbox.moe/2xj5tr.jpg', title:'Manly Cove Wharf and Harbour Pool', year:'c 1940s', loc:'Manly', desc:'Two steam ferries dock at the busy wharf as crowds pack the foreshore. A snapshot of post-war Manly — both a working harbour and a holiday destination.'},
+  {before:'https://files.catbox.moe/s6onat.jpg', after:'https://files.catbox.moe/1ut11v.jpg', title:'Body Surfers at Manly Beach', year:'c 1926', loc:'Manly', desc:'The birth of Australia\'s beach culture — body surfers riding the Manly waves, captured nearly 100 years ago.'},
+  {before:'https://files.catbox.moe/js04ie.jpg', after:'https://files.catbox.moe/gm40cu.jpg', title:'Manly Beach and Promenade', year:'c 1912', loc:'Manly', desc:'Edwardian elegance on Manly oceanfront promenade — frozen in time a century ago, brought back to life.'},
+  {before:'https://files.catbox.moe/th84yp.jpg', after:'https://files.catbox.moe/xjpuq0.jpg', title:'Thomas Street, North Manly', year:'c 1950', loc:'Brookvale', desc:'A sweeping view of mid-century Brookvale from the ridge of North Manly — red-tiled suburban homes giving way to rolling hills beyond.'},
+  {before:'https://files.catbox.moe/sb5rua.jpg', after:'https://files.catbox.moe/dduh8r.jpg', title:'Marineland and the Dressing Pavilion', year:'1970s', loc:'Manly', desc:'A beloved Manly landmark from the seaside fun era — frozen in the sun-bleached character of 70s beach culture.'},
+  {before:'https://files.catbox.moe/i2hlyf.jpg', after:'https://files.catbox.moe/rjvpha.jpg', title:'Old Pittwater Road, Brookvale', year:'c 1910', loc:'Brookvale', desc:'A quiet country lane flanked by eucalyptus bush — a rare glimpse into the Northern Beaches\' Edwardian past.'}
+];
+
+const gallery = document.querySelector('.gallery');
+gallery.innerHTML = photos.map(p => `
+  <div class="card compare-card">
+    <div class="compare">
+      <div class="compare-img">
+        <span class="label before">BEFORE</span>
+        <img src="${p.before}" alt="${p.title} - Original" loading="lazy">
+      </div>
+      <div class="compare-img">
+        <span class="label after">AFTER</span>
+        <img src="${p.after}" alt="${p.title} - Restored" loading="lazy">
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="meta">${p.year} · ${p.loc}</div>
+      <h3>${p.title} ✨ Restored</h3>
+      <p>${p.desc}</p>
+    </div>
+  </div>
+`).join('');
+
+// Lightbox
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lightbox-img');
+const lbCap = document.getElementById('lightbox-caption');
 function openLightbox(img) {
-  var lb = document.getElementById('lightbox');
-  document.getElementById('lightbox-img').src = img.src;
-  var caption = img.getAttribute('alt') || '';
-  var card = img.closest('.card-body') || img.closest('.compare-img');
-  if (card) {
-    var title = card.querySelector('h3');
-    if (title) caption = title.innerText;
-  }
-  document.getElementById('lightbox-caption').innerText = caption;
+  lbImg.src = img.src;
+  let caption = img.alt || '';
+  const card = img.closest('.card-body') || img.closest('.compare-img');
+  if (card) { const t = card.querySelector('h3'); if (t) caption = t.innerText; }
+  lbCap.innerText = caption;
   lb.classList.add('show');
 }
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('show');
-}
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.card img, .compare-img img').forEach(function(img) {
-    if (!img.dataset.lightbox) {
-      img.dataset.lightbox = '1';
-      img.addEventListener('click', function(e) {
-        e.stopPropagation();
-        openLightbox(this);
-      });
-    }
-  });
-});
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeLightbox();
-});
+function closeLightbox() { lb.classList.remove('show'); }
+document.querySelectorAll('.card img').forEach(img => img.addEventListener('click', function(e) {
+  e.stopPropagation(); openLightbox(this);
+}));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
 </body>
 </html>
